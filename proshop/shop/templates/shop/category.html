@@ -1,0 +1,44 @@
+{%  extends 'shop/base.html' %}
+{% load static %}
+{% block title %} ГЛАВНАЯ СТРАНИЦА {% endblock %}
+{% block head %} 
+{% endblock %}
+{% block content %}
+
+<center>
+    <div class=" layer2 ">
+       <font size="10" color= #E5D3BD;  face="Times New Roman"> {{ name }} </font>
+    </div>
+    <br>
+    <div class="container text-center">
+       <div class="row">
+          
+          {% for i in data %} 
+           <div class="col">
+            <div class="  shadowbox , layer1">
+             <div>
+              <a class="card-title" href="../product/{{ i.id}} "><font size="6" color= #E5D3BD;  face="Times New Roman">{{ i.name }}</font> </a> 
+             </div>
+             <div>
+                                        
+            </div>
+            {% for i in prod_img %}
+            <a href="../product/{{i.id}}"><img src="{% static i.img|cut:'shop/static' %}" width="300" height="200" alt="..."></a>
+            {% endfor %}
+               
+             <h5 class="card-text"> {{ i.description }}</h2>
+             <h3 class="card-text"> Цена {{ i.price }} (кг.)</h1>
+            <a href="../product/{{i.id}}"> <font size="4" color= #E5D3BD;  face="Times New Roman"> На страницу товара</font></a>
+             </div>
+            <br>
+           </div>
+          {% endfor %} 
+           </div>
+       </div>
+    </div>
+</div>
+       
+</center>
+    
+
+{% endblock %}
